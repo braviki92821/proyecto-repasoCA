@@ -1,0 +1,30 @@
+<body class="text-center">
+    <main class="form-signin w-100 m-auto">
+      <form #usuarioForm="ngForm" (ngSubmit)="registrarCuenta(usuarioForm)">
+        <img
+          class="mb-4"
+          src="/docs/5.2/assets/brand/bootstrap-logo.svg"
+          alt=""
+          width="72"
+          height="57"
+        />
+        <h1 class="h3 mb-3 fw-normal">Crea tu cuenta</h1>
+  
+        <div class="form-floating">
+          <input type="text" class="form-control" #nombre="ngModel" [(ngModel)]="personas.nombre" id="floatingInput" placeholder="name@example.com" name="nombre"/>
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" #password="ngModel" [(ngModel)]="personas.password" id="floatingPassword" placeholder="Password" name="password" />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating">
+            <input type="number" class="form-control" #edad="ngModel" [(ngModel)]="personas.edad" id="floatingPassword" placeholder="Password" name="edad"/>
+            <label for="floatingPassword">Edad</label>
+          </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+      </form>
+    </main>
+  </body>
+  

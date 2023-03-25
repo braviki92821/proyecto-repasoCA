@@ -1,0 +1,19 @@
+<app-header></app-header>
+<h3 class="h3 text-center mt-4">Catalogo de Juegos</h3>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div *ngFor="let catalogo of juegos">
+      <div class="card" style="width: 18rem">
+        <img src="{{catalogo.imagen}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{catalogo.nombre}}</h5>
+          <p class="card-text">{{catalogo.descripcion}}
+          </p>
+          <p class="card-text">{{catalogo.precio}}</p>
+          <a *ngIf="catalogo.disponible; else noDisponible" href="#" class="btn btn-primary">Comprar</a>
+          <ng-template #noDisponible><a class="btn btn-secondary" disabled>no disponible</a></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

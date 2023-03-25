@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container-fluid border border-dark mt-3 m-3 p-3 mx-auto">
+  <h3>Añadir nuevo juego</h3>
+  <form class="was-validated" [formGroup]="agregar" >
+    <p class="form-label">Nombre:</p>
+    <input class="form-control" type="text" formControlName="nombre" required>
+    <p class="form-label">Descripcion:</p>
+    <input class="form-control" type="text" formControlName="descripcion" required>
+    <p class="form-label">Imagen:</p>
+    <input class="form-control" type="text" formControlName="imagen" required>
+    <p class="form-label">Precio:</p>
+    <input class="form-control" type="number" formControlName="precio" required>
+    <button class="btn btn-primary mt-3" (click)="agregarJuego()" >Agregar</button>
+  </form>
+
+  <table class="table table-bordered border-primary mt-3">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio</th>
+        <th>Disponible</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let consulta of juegos; let ide=index">
+      <tr class="table-active">
+        <td><input type="text" class="border-0 form-control" #indice value="{{ide}}" disabled></td>
+        <td><input type="text" class="border-0 form-control" #name value="{{consulta.nombre}}"> </td>
+        <td><input type="text" class="border-0 form-control" #desc value="{{consulta.descripcion}}"></td>
+        <td><input type="text" class="border-0 form-control" #pre value="{{consulta.precio}}"></td>
+        <td><input type="text" class="border-0 form-control" #disp value="{{consulta.disponible}}"></td>
+        <td><button  class="btn btn-primary" (click)="modificarJuego(indice.value,name.value,desc.value,pre.value,disp.value)">Modificar</button></td>
+        <td><button class="btn btn-warning" (click)="eliminarJuego(indice.value)">eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
